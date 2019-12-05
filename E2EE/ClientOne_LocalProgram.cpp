@@ -45,7 +45,7 @@ void clientOne::generatePublicKey()
 {
 	createKey();
 
-	clientOne_publicKey = (g ^ clientOne_privateKey) % n;
+	clientOne_publicKey = (g ^ clientOne_privateKey);
 
 	// For debug only
 	//display_clientOne_privateKey();
@@ -95,7 +95,7 @@ void clientOne::calculateSecuredKey()
 {
 	Handshake_complete();
 
-	clientOne_SecuredKey = (RecievedKey ^ clientOne_privateKey);
+	clientOne_SecuredKey = (RecievedKey ^ clientOne_privateKey) % n;
 
 	displaySecurePublicKey();
 }
