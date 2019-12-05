@@ -40,7 +40,7 @@ void clientTwo::createKey()
 void clientTwo::generatePublicKey() {
 	createKey();
 
-	clientTwo_publicKey = (g ^ clientTwo_privateKey) % n;
+	clientTwo_publicKey = (g ^ clientTwo_privateKey);
 
 	// For debug only
 	//display_clientTwo_privateKey();
