@@ -40,7 +40,7 @@ void clientTwo::createKey()
 void clientTwo::generatePublicKey() {
 	createKey();
 
-	clientTwo_publicKey = (g ^ clientTwo_privateKey) % n;
+	clientTwo_publicKey = (g ^ clientTwo_privateKey);
 
 	// For debug only
 	//display_clientTwo_privateKey();
@@ -62,7 +62,7 @@ void clientTwo::sendKey()
 
 	server_object.relay_clientTwo_publicKey(clientTwo_publicKey);
 
-	//Display_clientTwo_publicKey();
+	Display_clientTwo_publicKey();
 }
 
 void clientTwo::Display_clientTwo_publicKey()
@@ -70,14 +70,14 @@ void clientTwo::Display_clientTwo_publicKey()
 	// For debugging use cout
 	std::cout << "Public Key from Client Two in Local Program is " << clientTwo_publicKey << std::endl;
 	std::cout << std::endl;
-	server_object.display_clientTwo_publicKey();
+	//server_object.display_clientTwo_publicKey();
 }
 
 void clientTwo::Handshake_complete()
 {
 	RecievedKey = server_object.send_clientOne_publicKey();
 
-	//display_recievedKey();
+	display_recievedKey();
 }
 
 void clientTwo::display_recievedKey()
@@ -90,7 +90,7 @@ void clientTwo::calculateSecuredKey()
 {
 	Handshake_complete();
 
-	clientTwo_SecuredKey = (RecievedKey ^ clientTwo_privateKey);
+	clientTwo_SecuredKey = (RecievedKey ^ clientTwo_privateKey) % n;
 
 	displaySecurePublicKey();
 }

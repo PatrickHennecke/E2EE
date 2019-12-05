@@ -45,7 +45,7 @@ void clientOne::generatePublicKey()
 {
 	createKey();
 
-	clientOne_publicKey = (g ^ clientOne_privateKey) % n;
+	clientOne_publicKey = (g ^ clientOne_privateKey);
 
 	// For debug only
 	//display_clientOne_privateKey();
@@ -63,7 +63,7 @@ void clientOne::sendKey()
 
 	server_object.relay_clientOne_publicKey(clientOne_publicKey);
 
-	//Display_clientOne_publicKey();
+	Display_clientOne_publicKey();
 }
 
 void clientOne::Display_clientOne_publicKey()
@@ -72,7 +72,7 @@ void clientOne::Display_clientOne_publicKey()
 	std::cout << std::endl;
 	std::cout << "Public Key from Client One in Local Program is " << clientOne_publicKey << std::endl;
 	std::cout << std::endl;
-	server_object.display_clientOne_publicKey();
+	//server_object.display_clientOne_publicKey();
 }
 
 // THIS IS WHERE MY CODE BREAKS
@@ -82,7 +82,7 @@ void clientOne::Handshake_complete()
 {
 	RecievedKey = server_object.send_clientTwo_publicKey();
 
-	//display_recievedKey();
+	display_recievedKey();
 }
 
 void clientOne::display_recievedKey()
@@ -95,7 +95,7 @@ void clientOne::calculateSecuredKey()
 {
 	Handshake_complete();
 
-	clientOne_SecuredKey = (RecievedKey ^ clientOne_privateKey);
+	clientOne_SecuredKey = (RecievedKey ^ clientOne_privateKey) % n;
 
 	displaySecurePublicKey();
 }

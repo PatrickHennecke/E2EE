@@ -8,6 +8,7 @@ class clientTwo {
 private:
 	// Variables
 	uint64_t clientTwo_privateKey;
+	uint64_t clientTwo_SecuredKey;
 	// Functions
 	void display_clientTwo_privateKey();
 
@@ -17,7 +18,6 @@ public:
 	// Variables
 	uint64_t clientTwo_publicKey;
 	uint64_t RecievedKey;
-	uint64_t clientTwo_SecuredKey;
 	uint64_t n;
 	uint64_t g;
 	//std::string message;

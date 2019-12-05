@@ -11,6 +11,7 @@ class clientOne {
 private:
 	// Variables
 	uint64_t clientOne_privateKey;
+	uint64_t clientOne_SecuredKey;
 	// Functions
 	void display_clientOne_privateKey();
 
@@ -20,7 +21,6 @@ public:
 	// Variables
 	uint64_t clientOne_publicKey;
 	uint64_t RecievedKey;
-	uint64_t clientOne_SecuredKey;
 	uint64_t n;
 	uint64_t g;
 	//std::string message;
