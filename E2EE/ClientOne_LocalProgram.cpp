@@ -4,6 +4,7 @@
 //#include <stdlib.h>
 #include <cstdint>
 #include <time.h>
+#include <string>
 
 using std::uint64_t;
 
@@ -104,5 +105,28 @@ void clientOne::displaySecurePublicKey()
 {
 	std::cout << std::endl;
 	std::cout << "Client One's Secured Public Key is " << clientOne_SecuredKey << std::endl;
+}
+
+void clientOne::get_Message()
+{
+	if (clientOne_SecuredKey != 0) {
+		std::cout << std::endl;
+		std::cout << "Client One's message: ";
+		std::cin >> message;
+	}
+}
+
+void clientOne::read_Message()
+{
+	std::cout << "Client One wrote: " << message << std::endl;
+}
+
+// Now rather than a pure end to end encyrption example I'm implementing client-end encryption
+// ostensibly this would be safer for most attacks (excluding middle man)
+void clientOne::EncryptMessage(std::string& message, int newkey)
+{
+	read_Message();
+
+
 }
 

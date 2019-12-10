@@ -23,7 +23,7 @@ public:
 	uint64_t RecievedKey;
 	uint64_t n;
 	uint64_t g;
-	//std::string message;
+	std::string message;
 	// Functions
 	clientOne();
 	void startConversation();
@@ -35,6 +35,8 @@ public:
 	void display_recievedKey();
 	void calculateSecuredKey();
 	void displaySecurePublicKey();
-//	//std::string EncryptMessage(std::string& message, int newkey);
-//	//std::string SendtoServer(std::string message, int newkey);
+	void get_Message();
+	void read_Message();
+	void EncryptMessage(std::string& message, int newkey);
+	//std::string SendtoServer(std::string message, int newkey);
 };

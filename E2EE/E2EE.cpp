@@ -36,4 +36,9 @@ int main() {
 
 	// Now that both secured keys are calculated, we see that they are equal which is exactly what we want when generating a shared public key.
 	// Note, for better understanding read the top of the page
+
+	std::cout << "End of Diffie-Hellman key exchange" << std::endl << std::endl;
+
+
+	object_One.get_Message();
 }
