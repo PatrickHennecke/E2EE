@@ -8,5 +8,6 @@ Overview, This file contains several headers that should work as separate entiti
 Prerequisites, Understanding of object oriented programming, header files, constructors, and basic algebra
 
 Note, as this project progresses, we will make member variables and functions private to try and accurately emulate End to End Encryption.
+Furthermore, we will move appropriate variables to the heap.
 
 Main cpp is titled E2EE.cpp
