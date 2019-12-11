@@ -6,6 +6,7 @@
 
 using std::uint64_t;
 
+// Try to find a better solution rather than using global variables
 uint64_t send_to_clientOne;
 uint64_t send_to_clientTwo;
 
@@ -14,7 +15,8 @@ DummyServer::DummyServer()
 	key1(0),
 	key2(0),
 	clientOne_publicKey(0),
-	clientTwo_publicKey(0)
+	clientTwo_publicKey(0),
+	relay_Message()
 {
 	// Generate key1 and key2 using a pseudo random number generator
 	srand(time(0));
@@ -105,7 +107,7 @@ uint64_t DummyServer::sendKey2()
 }
 
 // For debugging purposes
-void DummyServer::DisplayKey1()
+void DummyServer::DisplayKey1() const
 {
 	//Send to both clients
 
@@ -115,8 +117,8 @@ void DummyServer::DisplayKey1()
 }
 
 // For debugging purposes
-void DummyServer::DisplayKey2() {
-
+void DummyServer::DisplayKey2() const
+{
 	//Send to both clients
 
 	// For debugging use cout
@@ -157,24 +159,29 @@ uint64_t DummyServer::send_clientTwo_publicKey()
 	return send_to_clientOne;
 }
 
-void DummyServer::display_clientOne_publicKey()
+void DummyServer::display_clientOne_publicKey() const
 {
 	std::cout << "Public Key from Client One in Dummy Server is " << clientOne_publicKey << std::endl;
 	std::cout << std::endl;
 }
 
-void DummyServer::display_clientTwo_publicKey()
+void DummyServer::display_clientTwo_publicKey() const
 {
 	std::cout << "Public Key from Client Two in Dummy Server is " << clientTwo_publicKey << std::endl;
 }
 
 // This function relays encrypted message from client One
-//std::string DummyServer::Relay_clientOne_Message(std::string message, uint64_t number)
-//{
-//	return std::string();
-//}
+uint64_t DummyServer::Relay_clientOne_Message(std::string message)
+{
+	return relay_Message;
+}
 
 // This function relays encrypted message from client Two
-//std::string DummyServer::Relay_clientTwo_Message(std::string message, uint64_t number) {
-//	return std::string();
-//}
+uint64_t DummyServer::Relay_clientTwo_Message(std::string message)
+{
+	return relay_Message;
+}
+
+DummyServer::~DummyServer()
+{
+}
