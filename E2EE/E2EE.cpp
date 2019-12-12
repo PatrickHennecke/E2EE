@@ -39,16 +39,17 @@ int main() {
 
 	std::cout << "End of Diffie-Hellman key exchange" << std::endl << std::endl;
 
-	bool sent_message = false;
+	// CLEAN THIS UP
+	//bool sent_message = false;
 
-	while (!sent_message) {
-		object_One.get_Message();
-		sent_message = true;
-	}
+	//while (!sent_message) {
+	//	object_One.get_Message();
+	//	sent_message = true;
+	//}
 
-	object_One.send_Message();
+	//object_One.send_Message();
 
-	// Same problem as before, I believe we need to have a delay to see what client two is accurately given.
+	//// Same problem as before, I believe we need to have a delay to see what client two is accurately given.
 
-	object_Two.Inbox_Message();
+	//object_Two.Inbox_Message();
 }
