@@ -171,14 +171,24 @@ void DummyServer::display_clientTwo_publicKey() const
 }
 
 // This function relays encrypted message from client One
-uint64_t DummyServer::Relay_clientOne_Message(std::string message)
+void DummyServer::Relay_clientOne_Message(uint64_t Message)
 {
-	return relay_Message;
+	std::cout << std::endl << "Server recieved message " << Message << std::endl;
+	relay_Message = Message;
 }
 
 // This function relays encrypted message from client Two
-uint64_t DummyServer::Relay_clientTwo_Message(std::string message)
+void DummyServer::Relay_clientTwo_Message(uint64_t Message)
 {
+	std::cout << std::endl << "Server recieved message " << Message << std::endl;
+	relay_Message = Message;
+}
+
+uint64_t DummyServer::send_Message()
+{
+	if (relay_Message != 0) {
+		std::cout << std::endl << "Server sent message" << std::endl;
+	}
 	return relay_Message;
 }
 

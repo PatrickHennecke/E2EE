@@ -45,6 +45,7 @@ public:
 	void read_Transform(uint64_t newMessage);
 	uint64_t EncryptMessage(std::string& securemessage, uint64_t newkey);
 	void read_Encrypted();
+	void recieve_Message();
 	void decrypt_Message(uint64_t encrypted_message);
 	void read_Recieved_Message();
 	//std::string SendtoServer(std::string message, int newkey);

@@ -30,8 +30,9 @@ public:
 	uint64_t send_clientTwo_publicKey();
 	void display_clientOne_publicKey() const;
 	void display_clientTwo_publicKey() const;
-	uint64_t Relay_clientOne_Message(std::string message);
-	uint64_t Relay_clientTwo_Message(std::string message);
+	void Relay_clientOne_Message(uint64_t message);
+	void Relay_clientTwo_Message(uint64_t message);
+	uint64_t send_Message();
 	~DummyServer();
 
 private:

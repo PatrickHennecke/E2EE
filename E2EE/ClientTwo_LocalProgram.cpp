@@ -162,6 +162,15 @@ void clientTwo::read_Encrypted()
 	std::cout << std::endl << "Encrypted message is " << EncryptMessage(message, clientTwo_SecuredKey) << std::endl;
 }
 
+void clientTwo::Inbox_Message()
+{
+	recieved_message = server_object.send_Message();
+
+	decrypt_Message(recieved_message);
+
+	read_Recieved_Message();
+}
+
 void clientTwo::decrypt_Message(uint64_t encrypted_message)
 {
 	uint64_t decrypted;
@@ -173,6 +182,7 @@ void clientTwo::decrypt_Message(uint64_t encrypted_message)
 
 void clientTwo::read_Recieved_Message()
 {
+	std::cout << std::endl << "Client two recieved message: " << client_Ones_message << std::endl;
 }
 
 clientTwo::~clientTwo()

@@ -115,13 +115,11 @@ void clientOne::get_Message()
 		std::cout << "Client One's message: ";
 		std::getline(std::cin, message);
 	}
-
-
-	EncryptMessage(message, clientOne_SecuredKey);
 }
 
 void clientOne::send_Message()
 {
+	server_object.Relay_clientOne_Message(EncryptMessage(message, clientOne_SecuredKey));
 }
 
 // This function will be used to transform the message into unicode
@@ -166,12 +164,18 @@ uint64_t clientOne::EncryptMessage(std::string& securemessage, uint64_t newkey)
 
 	secured_message = newkey * transformed_message;
 
+	read_Encrypted();
+
 	return secured_message;
 }
 
 void clientOne::read_Encrypted()
 {
-	std::cout << std::endl << "Encrypted message is " << EncryptMessage(message, clientOne_SecuredKey) << std::endl;
+	std::cout << std::endl << "Encrypted message is " << secured_message << std::endl;
+}
+
+void clientOne::recieve_Message()
+{
 }
 
 void clientOne::decrypt_Message(uint64_t encrypted_message)
