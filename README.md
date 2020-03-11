@@ -1,5 +1,5 @@
 # E2EE
-Working example of end to end encryption
+Working example of end to end encryption (a project I did for fun)
 
 Notice: This file is not completed.
 
